@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Tarea</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/sketchy/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha384-o6mrxhR3iHgI+YN51v+z8KTUasPo4uH9/Tw1kkysv3c0Q8e5egZcFMDxD2Y6lpyV" crossorigin="anonymous">
+</head>
+
+<body>
+    <main class="container p-4">
+        <h1 class="display-4 text-center mt-4 titulo">Editar Tarea</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <form action="/editar-tarea/{{ tarea.id }}" method="POST">
+                            <div class="form-group">
+                                <input type="text" name="contenido_tarea" value="{{ tarea.contenido }}" placeholder="Tarea" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="categoria_tarea" value="{{ tarea.categoria }}" placeholder="Categoría" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="date" name="fecha_limite" value="{{ tarea.fecha_limite }}" class="form-control" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Guardar Cambios</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
+<!--Ese HTML es para que se conecte y edite las tareas devolviendo la lista editada con su mensaje Tarea actualizada-->
